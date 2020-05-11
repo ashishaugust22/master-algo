@@ -13,3 +13,20 @@
 
 // Explanation: The number 3 appears more than once
 // in the array.
+
+function findDuplicate(arr) {
+    for (i = 0; i < arr.length; i++) {
+        if (arr[Math.abs(arr[i])] > 0) {
+            arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
+        } else if (arr[Math.abs(arr[i])] === 0) {
+            arr[Math.abs(arr[i])] = "0";
+        } else if (arr[Math.abs(arr[i])] === "0") {
+            console.log(Math.abs(arr[i]));
+        }
+        else
+            console.log(Math.abs(arr[i]));
+    }
+}
+
+
+findDuplicate([0, 4, 3, 0, 2, 7, 8, 2, 3, 1]);
