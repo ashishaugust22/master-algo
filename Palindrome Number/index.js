@@ -39,3 +39,19 @@ var isPalindrome = function (x) {
 let result = isPalindrome(10);
 
 console.log(result);
+
+
+
+
+// O(n) time complexity solution
+
+//TODO: do it with O(log(n)) time complexity
+// Time complexity : O(\log_{10}(n))O(log 
+//     10
+//     ​	
+//      (n)). We divided the input by 10 for every iteration, so the time complexity is O(\log_{10}(n))O(log 
+//     10
+//     ​	
+//      (n))
+
+//     Space complexity : O(1)O(1).
