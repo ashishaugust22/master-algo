@@ -39,3 +39,5 @@ let input = [1, 2, 2, 3, 4];
 let result = removeElement(input, 2);
 
 console.log(result);
+
+// TODO: do it using two pointer
