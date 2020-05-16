@@ -6,6 +6,7 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 
+// TODO: do it again
 var merge = function (nums1, m, nums2, n) {
     let i = m - 1;
     let j = n - 1;
@@ -35,7 +36,7 @@ var merge = function (nums1, m, nums2, n) {
     }
 };
 
-let result = merge([1, 2, 3], 6, [2, 5, 6], 3);
+let result = merge([1, 2, 3, 0, 0, 0], 6, [2, 5, 6], 3);
 console.log(result);
 
 // Input:
