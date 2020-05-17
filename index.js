@@ -33,10 +33,46 @@ var merge = function (nums1, m, nums2, n) {
             j--; current--;
         }
     }
+    return nums1;
 };
 
-let result = merge([1, 2, 3], 6, [2, 5, 6], 3);
+let result = merge([1, 2, 3, 0, 0, 0], 6, [2, 5, 6], 3);
 console.log(result);
+
+
+
+
+
+// 2nd Approch
+
+var merge = function (nums1, m, nums2, n) {
+    m--;
+    n--;
+    let index = nums1.length - 1;
+    debugger;
+    while (index >= 0) {
+        if (m < 0) {
+            nums1[index] = nums2[n];
+            n--;
+        } else if (n < 0) {
+            nums1[index] = nums1[m];
+            m--;
+        } else {
+            if (nums1[m] > nums2[n]) {
+                nums1[index] = nums1[m];
+                m--;
+            } else {
+                nums1[index] = nums2[n];
+                n--;
+            }
+        }
+        index--;
+    }
+    console.log(nums1);
+};
+
+let result = merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3);
+
 
 // Input:
 // nums1 = [1,2,3,0,0,0], m = 3
