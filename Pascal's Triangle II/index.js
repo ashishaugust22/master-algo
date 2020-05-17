@@ -38,3 +38,6 @@ var getRow = function (rowIndex) {
     }
     return subArr;
 };
+
+
+// TODO: Could you optimize your algorithm to use only O(k) extra space?
