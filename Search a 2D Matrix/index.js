@@ -78,3 +78,37 @@ let binarySearch = function (arr, l, r, x, main) {
 // 1. []
 
 // 2. [[]]
+
+
+// better approch
+
+
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var searchMatrix = function (arr, target) {
+    if (!arr || !arr.length) return false;
+
+    let m = arr.length;
+    let n = arr[0].length;
+    let l = 0;
+    let r = (m * n) - 1;
+    return binarySearch(arr, l, r, target, m, n);
+};
+
+let binarySearch = function (arr, l, r, x, m, n) {
+    while (l <= r) {
+        let pivotIndex = Math.floor((l + r) / 2);
+        let properEl = arr[Math.floor(pivotIndex / n)][pivotIndex % n];
+        if (x === properEl) {
+            return true;
+        } else if (x < properEl) {
+            return binarySearch(arr, l, pivotIndex - 1, x, m, n);
+        } else {
+            return binarySearch(arr, pivotIndex + 1, r, x, m, n);
+        }
+    }
+    return false;
+};
