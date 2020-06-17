@@ -30,3 +30,24 @@ var twoSum = function (arr, target) {
 
 let result = twoSum([2, 7, 11, 15], 9);
 console.log(result);
+
+
+
+
+// one pass approach
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+const twoSum = function (nums, target) {
+  const comp = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (comp[nums[i]] >= 0) {
+      return [comp[nums[i]], i];
+    }
+    comp[target - nums[i]] = i;
+  }
+};
