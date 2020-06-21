@@ -67,3 +67,52 @@ let heapify = function (arr, i, heapLen) {
 // 1
 
 
+
+
+// using quick select
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findKthLargest = function (arr, k) {
+    if (arr.length === 1 && k === 1) return arr[0];
+
+    return quickSort(arr, 0, arr.length - 1, k - 1);
+};
+
+let quickSort = function (arr, left, right, k) {
+    let pivot = partition(arr, left, right);
+
+    if (pivot === k) {
+        return arr[pivot];
+    } else if (k < pivot) {
+        return quickSort(arr, left, pivot - 1, k);
+    } else {
+        return quickSort(arr, pivot + 1, right, k);
+    }
+};
+
+let partition = function (arr, low, high) {
+    let pivot = arr[low];
+    let i = high;
+    let j = high;
+
+    while (j > low) {
+        if (arr[j] < pivot) {
+            swap(arr, i, j);
+            i--;
+        }
+        j--;
+    }
+    swap(arr, low, i);
+    return i;
+};
+
+
+let swap = function (arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+};
