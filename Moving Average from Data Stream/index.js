@@ -25,3 +25,6 @@ let arr = [10, 20, 30, 40, 50];
 let movAvg = new movingAverage(arr);
 
 console.log(movAvg.addToStream(60));
+
+
+
