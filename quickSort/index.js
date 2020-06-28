@@ -1,40 +1,25 @@
 let quickSort = function (arr, left, right) {
-    let index;
-    if (arr.length > 1) {
-        index = partition(arr, left, right);
-
-        if (left < index - 1) {
-            quickSort(arr, left, index - 1);
-        }
-        if (right > index) {
-            quickSort(arr, index, right);
-        }
-    }
-    return arr;
+    let index = partition(arr, left, right);
+    if (left < index - 1) quickSort(arr, left, index - 1);
+    if (index < right) quickSort(arr, index + 1, right);
 };
 
 let partition = function (arr, low, high) {
-    let i = low;
+    let pivot = arr[low];
+    let i = high;
     let j = high;
-    let pivot = arr[Math.floor((low + high) / 2)];
 
-    while (i < j) {
-        while (arr[i] < pivot) {
-            i++;
-        }
-
-        while (arr[j] > pivot) {
-            j--;
-        }
-
-        if (i <= j) {
+    while (j > low) {
+        if (arr[j] > pivot) {
             swap(arr, i, j);
-            i++;
-            j--;
+            i--;
         }
+        j--;
     }
+    swap(arr, low, i);
     return i;
 };
+
 
 let swap = function (arr, i, j) {
     let temp = arr[i];
