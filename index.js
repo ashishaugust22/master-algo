@@ -1,25 +1,37 @@
-let movingAverage = function (arr) {
-    this.average = 0;
-    this.arr = arr;
-    for (let i = 0; i < arr.length; i++) {
-        this.average = this.getAverage(this.average, arr[i], i);
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @param {number} x
+ * @return {number[]}
+ */
+var findClosestElements = function (arr, k, x) {
+    let n = arr.length;
+    if (x <= arr[0]) {
+        return arr.slice(0, k);
+    } else if (arr[n - 1] <= x) {
+        return arr.slice(n - k, n);
+    } else {
+        let index = arr.indexOf(x);
+        if (index < 0)
+            index = -index - 1;
+        let low = Math.max(0, index - k - 1);
+        let high = Math.min(arr.length - 1, index + k - 1);
+
+        while (high - low > k - 1) {
+            if (low < 0 || (x - arr[low]) <= (arr[high] - x))
+                high--;
+            else if (high > arr.length - 1 || (x - arr[low]) > (arr[high] - x))
+                low++;
+            else
+                console.log("unhandled case: " + low + " " + high);
+        }
+        return arr.slice(low, high + 1);
     }
+
 };
 
-movingAverage.prototype.getAverage = function (prevAvg, x, n) {
-    return ((prevAvg * n) + x) / (n + 1);
-};
+let array = [1, 2, 3, 4, 5];
 
-movingAverage.prototype.addToStream = function (num) {
-    this.arr.push(num);
-    this.average = this.getAverage(this.average, num, this.arr.length);
-    return this.average;
-};
+let result = findClosestElements(array, 4, 6);
 
-let arr = [10, 20, 30, 40, 50];
-let movAvg = new movingAverage(arr);
-
-console.log(movAvg.addToStream(60));
-
-
-
+console.log(result);
