@@ -1,5 +1,6 @@
 // all posible substring of a string
 
+// Brute Force
 let allSubstr = function (s) {
     let ans = [];
     let diff = 0;
