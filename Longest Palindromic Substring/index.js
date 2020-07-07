@@ -1,4 +1,4 @@
-// Longest Palindromic Substring
+// 5. Longest Palindromic Substring
 // https://leetcode.com/problems/longest-palindromic-substring/
 // Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
 
@@ -17,34 +17,39 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
+    if (!s.length) return "";
     if (s.length === 1) return s;
+    let diff = 0;
     let lps = "";
-    let str = "";
-    let i = 0;
-    while (i < s.length - 1) {
-        let j = s.length - 1;
-        while (j > i) {
-            while (s[i] !== s[j] && j > i) {
-                j--;
+    while (diff < s.length) {
+        let start = 0;
+        let end = diff;
+        while (end < s.length) {
+            let substr = "";
+            for (let k = start; k <= end; k++) {
+                substr += s[k];
             }
-            let i1 = i;
-            let j1 = j;
-            let str = "";
-            for (; j1 >= i; j1--) {
-                if (s[i1] !== s[j1] && i <= j1) {
-                    str = "";
-                    break;
-                }
-                str = str + s[i1];
-                i1++;
+            if (isPalindrome(substr) && lps.length < substr.length) {
+                lps = substr;
+                break;
             }
-            if (str.length > lps.length) {
-                lps = str;
-            }
-            j--;
+            start++;
+            end++;
         }
-        i++;
+        diff++;
     }
     return lps;
 };
 
+let isPalindrome = function (substr) {
+    if (substr.length === 1) return true;
+    let i = 0;
+    let j = substr.length - 1;
+    while (i <= j) {
+        if (substr[i] !== substr[j]) {
+            return false;
+        }
+        i++; j--;
+    }
+    return true;
+};
