@@ -1,37 +1,44 @@
 /**
- * @param {number[]} arr
- * @param {number} k
- * @param {number} x
- * @return {number[]}
+ * @param {string} S
+ * @param {number[]} indexes
+ * @param {string[]} sources
+ * @param {string[]} targets
+ * @return {string}
  */
-var findClosestElements = function (arr, k, x) {
-    let n = arr.length;
-    if (x <= arr[0]) {
-        return arr.slice(0, k);
-    } else if (arr[n - 1] <= x) {
-        return arr.slice(n - k, n);
-    } else {
-        let index = arr.indexOf(x);
-        if (index < 0)
-            index = -index - 1;
-        let low = Math.max(0, index - k - 1);
-        let high = Math.min(arr.length - 1, index + k - 1);
-
-        while (high - low > k - 1) {
-            if (low < 0 || (x - arr[low]) <= (arr[high] - x))
-                high--;
-            else if (high > arr.length - 1 || (x - arr[low]) > (arr[high] - x))
-                low++;
-            else
-                console.log("unhandled case: " + low + " " + high);
-        }
-        return arr.slice(low, high + 1);
+/**
+ * @param {string} S
+ * @param {number[]} indexes
+ * @param {string[]} sources
+ * @param {string[]} targets
+ * @return {string}
+ */
+var findReplaceString = function (S, indexes, sources, targets) {
+    let index = 0;
+    for (let i = 0; i < indexes.length; i++) {
+        if (i === 0) index = indexes[0];
+        else index = index + targets[i - 1].length + 1;
+        S = replace(S, index, sources[i], targets[i]);
     }
-
+    return S;
 };
 
-let array = [1, 2, 3, 4, 5];
+let replace = function (S, i, source, target) {
+    debugger;
+    let newString = "";
+    if (S[i] === source[0]) {
+        for (let j = 0; j < i; j++) {
+            newString += S[j];
+        }
+        newString += target;
+        for (let j = i + source.length; j < S.length; j++) {
+            newString += S[j];
+        }
+    } else return S;
+    return newString;
+};
 
-let result = findClosestElements(array, 4, 6);
-
-console.log(result);
+findReplaceString(
+    "vmokgggqzp",
+    [3, 5],
+    ["kg", "ggq"],
+    ["s", "so"]);
