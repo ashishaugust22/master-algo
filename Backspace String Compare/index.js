@@ -71,3 +71,56 @@ var backspaceCompare = function (s, t) {
 };
 
 
+
+
+
+// arroach II
+// O(n) time and O(1) space
+
+
+/**
+ * @param {string} S
+ * @param {string} T
+ * @return {boolean}
+ */
+var backspaceCompare = function (s, t) {
+    let i = s.length - 1;
+    let j = t.length - 1;
+    while (i >= 0 || j >= 0) {
+        let skipS = 0;
+        while (i >= 0) {
+            if (s[i] === "#") {
+                skipS++;
+                i--;
+            } else if (s[i] !== "#" && skipS > 0) {
+                i--;
+                skipS--;
+            } else {
+                break;
+            }
+        }
+
+        let skipT = 0;
+        while (j >= 0) {
+            if (t[j] === "#") {
+                skipT++;
+                j--;
+            } else if (t[j] !== "#" && skipT > 0) {
+                j--;
+                skipT--;
+            } else {
+                break;
+            }
+        }
+
+        if (i >= 0 && j >= 0 && s[i] !== t[j]) {
+            return false;
+        }
+        if ((i >= 0 && j < 0) || (i < 0 && j >= 0)) {
+            return false;
+        }
+        i--;
+        j--;
+    }
+    return true;
+};
