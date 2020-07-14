@@ -53,3 +53,42 @@ let isPalindrome = function (substr) {
     }
     return true;
 };
+// time complexity is O(n cube)
+
+
+
+
+// Approch II
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+    if (s == null || s.length < 1) return "";
+    let start = 0;
+    let end = 0;
+    let lpsLen = 0;
+    for (let i = 0; i < s.length; i++) {
+        let len1 = expandAroundCenter(s, i, i);
+        let len2 = expandAroundCenter(s, i, i + 1);
+        let len = Math.max(len1, len2);
+        if (len > end - start) {
+            lpsLen = len;
+            start = i - Math.floor((len - 1) / 2);
+            end = i + Math.floor(len / 2);
+        }
+    }
+    return s.substr(start, lpsLen);
+};
+
+var expandAroundCenter = function (s, i, j) {
+    while (i >= 0 && j < s.length && s[i] === s[j]) {
+        i--;
+        j++;
+    }
+    return j - i - 1;
+};;
+
+
+// time complexity is O(n)
