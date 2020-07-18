@@ -1,5 +1,5 @@
 // Suppose you have two pets and you love both of them very much. You go to a pet store to buy different articles for your pets. But you ask salesman that you will buy only those articles which are actually in pair. In this store, articles are referred as integers. So you have to tell total no. of articles you will buy for your pets.
-
+// https://practice.geeksforgeeks.org/problems/love-for-the-twins/0
 // Note: Time complexity O(n).
 
 // Input : 
