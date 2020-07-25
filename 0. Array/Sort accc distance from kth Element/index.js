@@ -7,7 +7,6 @@
 
 
 const sortByDistance = (arr, k) => {
-    console.log("Input", arr, k);
     const index = searchElement(arr, k);
     const len = arr.length;
     const sortedArr = [arr[index]];
