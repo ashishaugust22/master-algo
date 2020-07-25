@@ -1,48 +1,38 @@
-// 46. Permutations
-// https://leetcode.com/problems/permutations/
-// Given a collection of distinct integers, return all possible permutations.
+[1, 2, 3];
 
-// Example:
-
-// Input: [1,2,3]
-// Output:
-// [
-//   [1,2,3],
-//   [1,3,2],
-//   [2,1,3],
-//   [2,3,1],
-//   [3,1,2],
-//   [3,2,1]
-// ]
+[];
+1;
+2;
+3;
+1 2;
+1 3;
+2 3;
+1 2 3;
 
 
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
+main(){
 
-// Using Recursion
-var permute = function (nums) {
-    if (!nums.length) return [[]];
     let ans = [];
-    recursive(nums, 0, ans);
+    for (let i = 0; i <= nums.length; i++) {
+        let set = new Set();
+        recursive(nums, i, ans, [], set);
+    }
     return ans;
-};
-let recursive = function (digits, start, ans) {
-    debugger;
-    if (start === digits.length - 1) {
-        ans.push(digits);
+}
+
+
+let recursive = function (nums, size, ans, temp, set) {
+    if (temp.length === size) {
+        ans.push([...temp]);
         return;
     }
-    for (let i = start; i < digits.length; i++) {
-        swap(digits, start, i);
-        recursive([...digits], start + 1, ans);
-        swap(digits, start, i);
+    for (let num of nums) {
+        if (!set.has(num)) {
+            temp.push(num);
+            set.add(num);
+            recursive(nums, size, ans, temp, set);
+            temp.pop();
+            set.delete(num);
+        }
     }
-};
-
-let swap = function (digits, i, j) {
-    let temp = digits[i];
-    digits[i] = digits[j];
-    digits[j] = temp;
 };
