@@ -42,3 +42,5 @@ var trap = function (height) {
     }
     return ans;
 };
+
+// Solved Again
