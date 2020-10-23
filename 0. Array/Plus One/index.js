@@ -46,3 +46,40 @@ var increase = function (arr, index) {
 let result = plusOne([9]);
 
 console.log(result);
+
+
+
+
+
+// iterative solution
+module.exports = {
+    //param A : array of integers
+    //return a array of integers
+    plusOne: function (A) {
+        let carry = true;
+        let index = A.length - 1;
+        while (carry) {
+            if (A[index] === 9) {
+                if (index === 0) {
+                    A[index] = 0;
+                    A.unshift(1);
+                    carry = false;
+                } else {
+                    A[index] = 0;
+                    index--;
+                }
+            } else {
+                A[index] = A[index] + 1;
+                carry = false;
+            }
+        }
+        A = this.removePrefixZeros(A);
+        return A;
+    },
+    removePrefixZeros: function (A) {
+        while (A[0] === 0) {
+            A.shift();
+        }
+        return A;
+    }
+};
