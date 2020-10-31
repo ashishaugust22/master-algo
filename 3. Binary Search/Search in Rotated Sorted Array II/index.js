@@ -62,3 +62,44 @@ let binarySearch = function (arr, l, r, x) {
     }
     return -1;
 };
+
+
+
+
+
+
+
+
+
+
+
+// iterative approch
+module.exports = {
+    //param A : array of integers
+    //param B : integer
+    //return an integer
+    search: function (A, B) {
+        let start = 0;
+        let end = A.length;
+        while (end - start >= 0) {
+            let mid = Math.floor(start + (end - start) / 2);
+            if (A[mid] === B) {
+                return mid;
+            }
+            if (A[start] <= A[mid]) {
+                if (A[start] <= B && B < A[mid])
+                    end = mid - 1;
+                else
+                    start = mid + 1;
+            }
+            // the upper half is sorted
+            else {
+                if (A[mid] < B && B <= A[end])
+                    start = mid + 1;
+                else
+                    end = mid - 1;
+            }
+        }
+        return -1;
+    }
+};
