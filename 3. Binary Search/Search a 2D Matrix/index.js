@@ -112,3 +112,45 @@ let binarySearch = function (arr, l, r, x, m, n) {
     }
     return false;
 };
+
+
+
+
+// Another Approch
+// binary search row
+// binary search column
+module.exports = {
+    //param A : array of array of integers
+    //param B : integer
+    //return an integer
+    searchMatrix: function (A, B) {
+        let rows = A.length - 1;
+        let cols = A[0].length - 1;
+        let start = 0;
+        let end = rows;
+        let start1 = 0;
+        let end1 = cols;
+        while (end - start >= 0) {
+            let mid = Math.floor(start + (end - start) / 2);
+            if (A[mid][0] <= B && A[mid][cols] >= B) {
+                while (end1 - start1 >= 0) {
+                    let mid1 = Math.floor(start1 + (end1 - start1) / 2);
+                    if (A[mid][mid1] === B) {
+                        return 1;
+                    }
+                    if (B > A[mid][mid1]) {
+                        start1 = mid1 + 1;
+                    } else {
+                        end1 = mid1 - 1;
+                    }
+                }
+            }
+            if (B > A[mid][0]) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        return 0;
+    }
+};
