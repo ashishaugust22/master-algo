@@ -45,3 +45,40 @@ let recursive = function (digits, ans, phone, curr, i) {
         recursive(digits, ans, phone, curr + string[j], i + 1);
     }
 };
+
+
+
+
+
+// tried again
+module.exports = {
+    //param A : string
+    //return a array of strings
+    letterCombinations: function (A) {
+        let phone = {};
+        phone["0"] = "0";
+        phone["1"] = "1";
+        phone["2"] = "abc";
+        phone["3"] = "def";
+        phone["4"] = "ghi";
+        phone["5"] = "jkl";
+        phone["6"] = "mno";
+        phone["7"] = "pqrs";
+        phone["8"] = "tuv";
+        phone["9"] = "wxyz";
+        let ans = [];
+        for (let i = 0; i < phone[A[0]].length; i++) {
+            this.recursion(A, phone, ans, 1, phone[A[0]][i]);
+        }
+        return ans;
+    },
+    recursion: function (A, phone, ans, i, currSpell) {
+        if (currSpell.length === A.length) {
+            ans.push(currSpell);
+            return;
+        }
+        for (let j = 0; j < phone[A[i]].length; j++) {
+            this.recursion(A, phone, ans, i + 1, currSpell + phone[A[i]][j]);
+        }
+    }
+};
