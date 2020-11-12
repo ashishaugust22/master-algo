@@ -30,3 +30,25 @@ var maxArea = function (arr) {
     }
     return max;
 };
+
+
+// little code improvement
+module.exports = {
+    //param A : array of integers
+    //return an integer
+    maxArea: function (A) {
+        let maxWater = 0;
+        let i = 0;
+        let j = A.length - 1;
+        while (j - i >= 0) {
+            let currMax = (j - i) * Math.min(A[i], A[j]);
+            maxWater = Math.max(maxWater, currMax);
+            if (A[i] <= A[j]) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return maxWater;
+    }
+};
