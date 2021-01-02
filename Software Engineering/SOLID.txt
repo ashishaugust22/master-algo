@@ -1,0 +1,22 @@
+https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design#:~:text=SOLID%20is%20an%20acronym%20for,also%20known%20as%20Uncle%20Bob).&text=SOLID%20stands%20for%3A,L%20%2D%20Liskov%20Substitution%20Principle
+Developed by Uncle Bob
+
+S => Single Responsibility
+O => Open/Closed Principle
+L => Liskov Substitution Principle
+I => Interface Segregation Principle
+D => Dependency Inversion Principle
+
+Single Responsibility
+# A class should only be responsible for one thing.
+# 
+
+
+Open/Closed Principle
+# An entity should be open for extension, but closed for modification.
+# e.g. open source package where we can add function but don't modifiy core functionality.
+
+Liskov Substitution Principle
+# works for derived classes
+# same interface of class gives same result
+# class RubberDuck extends Duck

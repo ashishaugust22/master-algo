@@ -63,6 +63,10 @@
 //      this.next = null
 //    }
 
+
+
+// Two pass solution
+
 module.exports = {
     //param A : head node of linked list
     //param B : integer
@@ -89,3 +93,7 @@ module.exports = {
         return A;
     }
 };
+
+
+
+// TODO: try it with one pass solution
