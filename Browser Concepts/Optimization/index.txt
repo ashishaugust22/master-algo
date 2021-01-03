@@ -1,0 +1,16 @@
+1. Use a Content Delivery Network (CDN)
+2. Move your website to a better host
+    # Shared hosting
+    # Virtual Private Servers (VPS) hosting
+    # Dedicated server
+3. Optimize the size of images on your website
+4. Reduce the number of plugins
+5. Minimize the number of JavaScript and CSS files
+6. Use website caching
+7. Implement Gzip Compression
+8. Database optimization in CMS
+9. Reduce the use of web fonts (HTTP Requests)
+    # Use modern formats WOFF2 for modern browsers;
+12. Use prefetching techniques
+13. Minify CSS and JavaScript
+14. TTFB (HTTP request time + Process request time + HTTP response time)
