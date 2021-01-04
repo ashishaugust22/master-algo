@@ -1,0 +1,6 @@
+Why Service Worker?
+    # Rich offline experiences
+    # Periodic background syncsm(Currently Available)
+    # Push notifications (Currently Available)
+    # Intercept
+
