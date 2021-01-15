@@ -1,0 +1,90 @@
+Interviewer: Shruti Aggarwal
+
+1. React vs Angular
+2. Vanilla JS
+3. Class Inheritance
+4. Dispatch action pollyfill
+5. Currying
+6. Bind pollyfill
+7. Prototypal Inheritance
+8. What is the last prototype
+
+
+
+
+
+Hi Shruti,
+
+Please find the code below.
+
+class Person {
+  constructor (firstName, lastName, gender)  {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.gender = gender;
+  }
+}
+
+class Student extends Person{
+  constructor (params) {
+    super(params.firstName, params.lastName, params.gender);
+    this.marks = params.marks;
+  }
+ } 
+
+ let john = new Student({
+   firstName: 'John',
+  lastName: 'test',
+  gender: "male",
+  marks: 91
+});
+
+this.store.dispatch(action(state));
+
+
+
+dispatch (callback) {
+
+  callback(state);
+}
+
+
+
+
+sum(3)(7)()()
+
+function sum (a) {
+  arguments
+  return function (b){
+    Object.keys(arguments)
+  }
+}
+
+sum(3)(7);
+
+
+
+let obj1 = {
+  firstName: 'Ashish',
+  lastName: 'Sharma',
+  getFullName: function () {
+    return this.firstName + this.lastName;
+  }
+}
+
+let obj2 = {
+  firstName: 'Shruti',
+  lastName: 'Aggarwal',
+}
+
+obj1.getFullName.bind(obj2);
+
+
+obj1.bind()
+
+Function.prototype.customBind = function (context, ...args) {
+  let self = this;
+  return function () {
+    self.call(context, ...args);
+  }
+}
