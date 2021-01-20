@@ -1,0 +1,82 @@
+JS Fundamentals (Rahul Soni) (20-01-2021) (Final Round) 15LPA
+
+console.log('a');
+
+setTimeout(() => {
+	console.log('b');
+}, 1000);
+
+// 10s
+getData().then(() => {
+	console.log('c');
+})
+
+console.log('d');
+
+// 5s
+for (let i = 0; i < 52938726355267247; i++) {
+	console.log('i: ' + i);
+}
+
+console.log('e');
+
+a - 0s
+d - 0s
+i: 1 ... n - 0s - 5s
+e - 5s
+b - 5s/6s
+c - 10s
+
+
+
+-------------
+  
+  
+for (var i = 0; i < 10; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+
+
+
+----------------
+
+class EventEmitter {
+	// ...
+  
+  on(name, fn) {
+    
+  	// ...
+  }
+  
+  emit(name) {
+  	// ...
+  }
+}
+
+
+const emitter = new EventEmitter();
+
+emitter.on('e1', () => { ... }) // listener 1
+emitter.on('e1', () => { ... }) // listener 2
+
+...
+
+emitter.emit('e1');
+
+
+
+
+
+
+===============================
+useMemo hook
+===============================
+diff between private & protected keywords
+===============================
+call, apply, bind
+===============================
+react lifecycle hooks
+===============================
+promise vs async await
