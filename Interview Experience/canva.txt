@@ -1,8 +1,66 @@
 Canva
-1. HR Screening Call (21-01-2021) (30 to 45 mins)
+https://www.canva.com/careers/how-we-hire/
+canva.com/careers/engineering-interview/
 
-2. Do you need Visa Sponsorship
+Round 0 =============================================
+    1 hour coding challenge on hacker-rank
+
+
+Round 1 =============================================
+    HR Screening Call (21-01-2021) (30 to 45 mins)
+    Do you need Visa Sponsorship
     Do company sponsors it or I need to do that?
     Yes, I would need that.
-3. Whats the notice period?
-    
+    Whats the notice period?
+    General questions about JS and Async JS.
+    Basic JS questions
+    Question to identify Promise.all polyfill
+    Var/Let/Const. Promises/Async programming, Maps and Sets.
+    Code snippets
+    How would I go about sending 1,000 HTTP requests to the backend.  
+    Describe a time when you worked in a team to solve a problem?  
+    Why do you want to work with Canva  
+
+
+
+Round 2 =============================================
+Expected
+    At this stage, be prepared to write production-grade code with full optimization for performance
+    Pair Coding
+    Pure JavaScript
+    How to approch?
+    Pair coding
+    Some simple object manipulation and use of promises (with a fake backend emulated with the use of setTimeout).
+    Promise Promise Promise......master Promise
+    Mostly questions about promises and related stuff.  
+    What is a JS promise, how to use it/?
+    Implement JSON.stringify, solve circular dependency.
+    Implement countdown timer.
+    What does promise.resolve do and what would you use it for?
+    Describe the difference between var, let & const.  
+    What is the difference between Map and Object?  
+    Asynchronous programming concept.
+    Code pair with one of the engineer (1hr) - 2-3 scenario-based questions.
+    Implement a data structure
+    How would you allow for multiple promises to be processed at the same time?
+        Actually Promise.all is not the only one, just depend on what you need, if your promises need to execute with a depedency grade, so Promise.all will work fine, but if you just want to execute all of them, so you should use Promise.allSettled , so will return a promise when all the passed promises were resolved or rejected, so Promise.all will stop de execution if any of the promise failed.
+    Practice and perfect Set data structure
+    ES6
+    2-way communication
+        sharing what I did and what I could do provided more time 
+        headspace to refactor
+    OOP concepts
+    Computer Sc Fundamentals
+    What's different between interface and class
+    body.onload vs document.ready()
+
+
+Round 3 =============================================
+Expected
+    Final interview, where I had three different engineers asking me to solve different problems:
+    1. A text based snake
+    2. Some basic CSS
+    3. A timer with a reset button
+    Implement given layout in html/css.
+    Find the maximum count of elements from a given array such that their sum is less than or equal to k.  
+
