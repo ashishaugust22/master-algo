@@ -53,7 +53,7 @@ Expected
     Computer Sc Fundamentals
     What's different between interface and class
     body.onload vs document.ready()
-
+    Bonus points for understanding request animation frame, this, and the event loop
 
 Round 3 =============================================
 Expected
