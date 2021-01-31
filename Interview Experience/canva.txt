@@ -67,4 +67,6 @@ Expected
     3. A timer with a reset button
     Implement given layout in html/css.
     Find the maximum count of elements from a given array such that their sum is less than or equal to k.  
-
+    4. Tic Tac Toe
+    5. Chess Game
+    
