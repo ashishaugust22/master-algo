@@ -1,11 +1,11 @@
 class Node {
-    constructor(element) {
+    constructor (element) {
         this.element = element;
         this.next = null;
     }
 }
 class LinkedList {
-    constructor() {
+    constructor () {
         this.head = null;
         this.size = 0;
     }
@@ -35,7 +35,8 @@ class LinkedList {
             this.head = node;
         } else {
             let current = this.head;
-            while (curr_index === index) {
+            let previous;
+            while (curr_index !== index) {
                 curr_index++;
                 previous = current;
                 current = current.next;
@@ -47,7 +48,23 @@ class LinkedList {
     };
 
     removeFrom = function (index) {
-        return 'not implemented';
+        if (index > 0 && index > this.size) return false;
+
+        let curr_index = 0;
+
+        if (index === 0) {
+            this.head = this.head.next;
+        } else {
+            let current = this.head;
+            let previous;
+            while (curr_index !== index) {
+                curr_index++;
+                previous = current;
+                current = current.next;
+            }
+            previous.next = current.next;
+        }
+        this.size--;
     };
     removeElement = function (element) {
         return 'not implemented';
@@ -77,23 +94,10 @@ class LinkedList {
 }
 
 
+let linkedList = new LinkedList();
 
+for (let i = 0; i < 10; i++) {
+    linkedList.add(i);
+}
 
-// linked list to test code
-
-let ll = {
-    "data": 1,
-    "next": {
-        "data": 2,
-        "next": {
-            "data": 3,
-            "next": {
-                "data": 4,
-                "next": {
-                    "data": 5,
-                    "next": null
-                }
-            }
-        }
-    }
-};
+linkedList.printList();
