@@ -67,7 +67,16 @@ class LinkedList {
         this.size--;
     };
     removeElement = function (element) {
-        return 'not implemented';
+        let current = this.head;
+        let previous;
+        while (current.element !== element) {
+            previous = current;
+            current = current.next;
+        }
+        if (current) {
+            previous.next = current.next;
+        }
+        this.size--;
     };
 
 
