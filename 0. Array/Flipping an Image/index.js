@@ -36,3 +36,23 @@ var flipAndInvertImage = function (image) {
 
     return image;
 };
+
+
+
+
+// 1 pass solution
+// trick store result value while swaping
+// use XOR operator
+var flipAndInvertImage = function (image) {
+
+    image.forEach(el => {
+        let n = el.length;
+        for (let i = 0; i < n / 2; i++) {
+            let temp = el[i] ^ 1;
+            el[i] = el[n - i - 1] ^ 1;
+            el[n - i - 1] = temp;
+        }
+    });
+
+    return image;
+};
