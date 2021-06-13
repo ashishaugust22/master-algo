@@ -44,3 +44,32 @@ var trap = function (height) {
 };
 
 // Solved Again
+
+
+//=================================================================
+//=================================================================
+
+// Better solution
+
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+ var trap = function(height) {
+    let leftMaxArray = [height[0]];
+    let rightMaxArray = [height[height.length-1]];
+    let trappedWater = 0;
+    
+    for (let i = 1; i < height.length; i++) {
+        leftMaxArray.push(Math.max(leftMaxArray[i-1],height[i]));
+    }
+    
+    for (let i = height.length-2; i >= 0; i--) {
+        rightMaxArray.unshift(Math.max(rightMaxArray[0],height[i]));
+    }
+    
+    for (let i = 0; i < height.length; i++) {
+        trappedWater += Math.min(leftMaxArray[i], rightMaxArray[i]) - height[i];
+    }
+    return trappedWater;
+};
