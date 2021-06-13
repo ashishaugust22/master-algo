@@ -57,3 +57,37 @@ let sort = function (arr) {
     });
     return arr;
 };
+
+
+// ===================================================================
+// ===================================================================
+
+// better code
+
+/**
+ * @param {number[][]} intervals
+ * @return {number[][]}
+ */
+ var merge = function(intervals) {
+
+    intervals.sort(function(a,b){ return a[0]-b[0]});
+    let merged = [intervals[0]];
+    
+    for (let i = 0; i < intervals.length; i++) {
+        let prev = merged[merged.length-1];
+        let curr = intervals[i];
+        if( prev[1] >= curr[0]) {
+            merged[merged.length-1] = [ Math.min(prev[0], curr[0]), Math.max(prev[1], curr[1]) ]
+        } else {
+            merged.push(curr);
+        }
+    }
+    return merged;
+};
+
+
+
+
+
+
+
