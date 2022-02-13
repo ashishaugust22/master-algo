@@ -4,7 +4,7 @@ let heapSort = function (arr) {
         heapify(arr, i, heapLength);
     }
 
-    for (let i = arr.length - 1; i > 0; i++) {
+    for (let i = arr.length - 1; i > 0; i--) {
         swap(arr, 0, heapLength - 1);
         heapLength--;
         heapify(arr, 0, heapLength);
@@ -20,20 +20,21 @@ let swap = function (arr, i, j) {
 
 
 let heapify = function (arr, i, heapLength) {
-    let parent = i;
-    let left = 2 * i + 1;
-    let right = 2 * i + 2;
+    let parentIndex = i;
+    let leftChildIndex = 2 * i + 1;
+    let rightChildIndex = 2 * i + 2;
 
-    if (left < heapLength && arr[left] > arr[parent]) {
-        parent = left;
+    if (leftChildIndex < heapLength && arr[leftChildIndex] > arr[parentIndex]) {
+        parentIndex = leftChildIndex;
     }
-    if (right < heapLength && arr[right] > arr[parent]) {
-        parent = right;
+    if (rightChildIndex < heapLength && arr[rightChildIndex] > arr[parentIndex]) {
+        parentIndex = rightChildIndex;
     }
-    if (i !== parent) {
-        swap(arr, parent, i);
-        heapify(arr, parent, heapLength);
+    if (i !== parentIndex) {
+        swap(arr, parentIndex, i);
+        heapify(arr, parentIndex, heapLength);
     }
 };
 
-heapSort([3, 0, 2, 5, -1, 4, 1]);
+const sortedArray = heapSort([3, 8, 2]);
+console.log(sortedArray);
