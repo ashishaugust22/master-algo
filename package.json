@@ -1,0 +1,32 @@
+{
+  "name": "master-algo",
+  "version": "1.0.0",
+  "description": "Repo for Data Structure & Algorithm practice. All the questions are master piece which will bend your thinking in different direction.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "npm run prettier:fix && npm run lint:fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashish-sharma91/master-algo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashish-sharma91/master-algo/issues"
+  },
+  "homepage": "https://github.com/ashish-sharma91/master-algo#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "prettier": "2.5.1"
+  }
+}
