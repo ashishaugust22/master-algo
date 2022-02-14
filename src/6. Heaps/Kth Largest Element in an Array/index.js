@@ -20,45 +20,51 @@
  * @param {number} k
  * @return {number}
  */
-var findKthLargest = function (arr, k) {
-    let heapLen = arr.length;
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+ var findKthLargest = function(arr, k) {
+  let heapLength = arr.length;
+  
+  // heapify the arr
+  for (let i = Math.floor(arr.length/2); i >=0; i--) {
+      heapify(arr, i, heapLength);
+  }
+  
+  for (let i = 0; i < k-1; i++) {
+      swap(arr, 0, heapLength-1);
+      heapLength--;
+      heapify(arr, 0, heapLength);
+  }
+  return arr[0];
+}
 
-    for (let i = Math.floor(arr.length / 2); i >= 0; i--) {
-        heapify(arr, i, arr.length);
-    }
-
-    for (let i = k - 1; i > 0; i--) {
-        swap(arr, 0, heapLen - 1);
-        heapLen--;
-        heapify(arr, 0, heapLen);
-    }
-    return arr[0];
-};
+let heapify = function (arr, i, heapLength) {
+  let parentIndex = i;
+  let leftChildIndex = 2 * i + 1;
+  let rightChildIndex = 2 * i + 2;
+  
+  if (leftChildIndex < heapLength && arr[leftChildIndex] > arr[parentIndex]) {
+      parentIndex = leftChildIndex;
+  }
+  
+  if (rightChildIndex < heapLength && arr[rightChildIndex] > arr[parentIndex]) {
+      parentIndex = rightChildIndex;
+  }
+  
+  if (i !== parentIndex) {
+      swap(arr, i, parentIndex);
+      heapify(arr, parentIndex, heapLength);
+  }
+}
 
 let swap = function (arr, i, j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-};
-
-let heapify = function (arr, i, heapLen) {
-    let parent = i;
-    let left = 2 * i + 1;
-    let right = 2 * i + 2;
-
-    if (left < heapLen && arr[left] > arr[parent]) {
-        parent = left;
-    }
-
-    if (right < heapLen && arr[right] > arr[parent]) {
-        parent = right;
-    }
-
-    if (i !== parent) {
-        swap(arr, i, parent);
-        heapify(arr, parent, heapLen);
-    }
-};;
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
 
 
 // Trivial Test cases
